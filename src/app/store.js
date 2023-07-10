@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import topicsReducer from "../app/features/topics";
 
 export default configureStore({
-  reducer: {},
+  reducer: {
+    topics: topicsReducer,
+  },
 });
+`;

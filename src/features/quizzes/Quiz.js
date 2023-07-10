@@ -1,9 +1,12 @@
+import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux"; // Importing useSelector
 import Card from "../cards/Card";
 import ROUTES from "../../app/routes";
+import { selectQuizzes } from "../../features/quizzes/quizzes"; // Importing the selectQuizzes selector
 
-export default function Topic() {
-  const quizzes = {}; // replace this with a call to your selector to get all the quizzes in state
+export default function Quiz() {
+  const quizzes = useSelector(selectQuizzes); // Accessing all the quizzes from state
   let { quizId } = useParams();
   const quiz = quizzes[quizId];
 

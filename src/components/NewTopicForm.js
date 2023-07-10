@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { ALL_ICONS } from "../data/icons";
+import { addTopic } from "../app/features/topics";
 
 export default function NewTopicForm() {
   const [name, setName] = useState("");
@@ -15,7 +16,15 @@ export default function NewTopicForm() {
       return;
     }
 
-    // dispatch your add topic action here
+    const newTopic = {
+      id: uuidv4(),
+      name,
+      icon,
+    };
+
+    // Dispatch the addTopic action
+    dispatch(addTopic(newTopic));
+
     history.push(ROUTES.topicsRoute());
   };
 
